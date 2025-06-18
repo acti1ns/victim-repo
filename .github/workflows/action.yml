@@ -1,9 +1,12 @@
-name: Malicious Checkout PoC
+name: PoC Victim Workflow
+
 on: [push]
 
 jobs:
-  test-malicious-checkout:
+  pwned:
     runs-on: ubuntu-latest
     steps:
-      - name: Using malicious action
+      - name: Trigger fake action
         uses: acti1ns/checkout@v1
+        with:
+          dummy: "trigger"
