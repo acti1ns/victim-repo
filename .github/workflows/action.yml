@@ -1,0 +1,9 @@
+name: Malicious Checkout PoC
+on: [push]
+
+jobs:
+  test-malicious-checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Using malicious action
+        uses: acti1ns/checkout@v1
