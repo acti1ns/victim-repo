@@ -5,5 +5,5 @@ jobs:
   test-malicious-checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Using malicious action
+      - name: Using malicious action here
         uses: acti1ns/checkout@v1
